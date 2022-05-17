@@ -2,31 +2,52 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "./context/Authcontext";
 import Modal from "./Modal.js";
+// import Paged from "./Paged.js";
 
 function Account() {
   const { user, logout } = UserAuth();
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
+  // const [view, setView] = useState(false);
+  const [name, setName] = useState("Anirudh Gautam");
+  const [roll, setRoll] = useState("1116403220");
+ 
+  const enrol = [146403220, 116403220, 136403220, 126403220];
+  const Naam = [
+    "Anirudh Gautam",
+    "Anjali Singh",
+    "Avantika Tomar",
+    "Naveen Dawar",
+  ];
+
+  const generateRandomNumber = () => {
+    const item = enrol[Math.floor(Math.random() * enrol.length)];
+    const sitem = Naam[Math.floor(Math.random() * Naam.length)];
+
+    setName(sitem);
+    setRoll(item);
+  };
 
   const handleClick = async () => {
     try {
       await logout();
       navigate("/");
-      console.log("You r logged out");
+      alert("You r logged out");
     } catch (e) {
       console.log(e.message);
     }
   };
-  //   const handleModal = {
-  //     <Modal/>
-  //  };
 
   return (
     <div className="max-w-[600px] mx-auto p-4">
       <h1 className="text-2xl font-bold py-4">Account</h1>
       <p>User Email:{user && user.email}</p>
-      <button onClick={handleClick} className="border px-6 py-2 my-4">
+      <button
+        onClick={handleClick}
+        className="border px-6 py-2 my-4 hover:bg-blue-50"
+        id="button"
+      >
         Logout
       </button>
       <div className="bg-white shadow overflow-hidden sm:rounded-lg">
@@ -43,7 +64,7 @@ function Account() {
             <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt className="text-sm font-medium text-gray-500">Full name</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                Anirudh Gautam
+                {`${name}`}
               </dd>
             </div>
             <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -51,7 +72,7 @@ function Account() {
                 Enrollment Number
               </dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                01116403220
+                {`${roll}`}
               </dd>
             </div>
             <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -59,7 +80,7 @@ function Account() {
                 Application For
               </dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                Verification for IPU Mail ID
+                Verification of IPU Mail ID
               </dd>
             </div>
 
@@ -67,7 +88,7 @@ function Account() {
               <dt className="text-sm font-medium text-gray-500">Attachments</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                 <ul
-                  role="list"
+                  // role="list"
                   className="border border-gray-200 rounded-md divide-y divide-gray-200"
                 >
                   <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
@@ -82,7 +103,7 @@ function Account() {
                     </div>
                     <div className="ml-4 flex-shrink-0">
                       <a
-                        href="#"
+                      href="http://www.ipu.ac.in/"
                         className="font-medium text-indigo-600 hover:text-indigo-500"
                       >
                         Open
@@ -91,17 +112,13 @@ function Account() {
                   </li>
                   <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                     <div className="w-0 flex-1 flex items-center">
-                      {/* <PaperClipIcon
-                    className="flex-shrink-0 h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  /> */}
                       <span className="ml-2 flex-1 w-0 truncate">
                         Reporting_Slip.pdf
                       </span>
                     </div>
                     <div className="ml-4 flex-shrink-0">
                       <a
-                        href="google.com"
+                        href="http://www.ipu.ac.in/"
                         className="font-medium text-indigo-600 hover:text-indigo-500"
                       >
                         Open
@@ -119,13 +136,15 @@ function Account() {
             }}
           >
             Verify
-            {open && <Modal/>}
+            {open && <Modal />}
           </button>
 
-          <button className="border border-blue-500 bg-blue-600 hover:bg-blue-500 w-[200px] p-4 my-2 mx-2 text-white">
+          <button
+            className="border border-blue-500 bg-blue-600 hover:bg-blue-500 w-[200px] p-4 my-2 mx-2 text-white"
+            onClick={generateRandomNumber}
+          >
             Next
           </button>
-
         </div>
       </div>
     </div>

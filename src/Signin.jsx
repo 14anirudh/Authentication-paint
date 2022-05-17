@@ -15,6 +15,7 @@ const Signin = () => {
     try {
       await signIn(email, password)
       navigate('/account')
+      alert(`you're signed in as ${email}`);
     } catch (e) {
       setError(e.message)
       alert(e.message)
