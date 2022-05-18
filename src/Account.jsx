@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "./context/Authcontext";
 import Modal from "./Modal.js";
-// import Paged from "./Paged.js";
 
 function Account() {
   const { user, logout } = UserAuth();
@@ -13,12 +12,16 @@ function Account() {
   const [name, setName] = useState("Anirudh Gautam");
   const [roll, setRoll] = useState("1116403220");
  
-  const enrol = [146403220, 116403220, 136403220, 126403220];
+  const enrol = [146403220, 156403320, 136403220, 126603420,186403820,196456220,226403220,236403220];
   const Naam = [
-    "Anirudh Gautam",
+    "Manik Agarwal",
     "Anjali Singh",
     "Avantika Tomar",
     "Naveen Dawar",
+    "Rishabh Pant",
+    "Lakshay Arora",
+    "Vatsal Gupta",
+    "Tanishq Sharma"
   ];
 
   const generateRandomNumber = () => {
@@ -85,7 +88,7 @@ function Account() {
             </div>
 
             <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt className="text-sm font-medium text-gray-500">Attachments</dt>
+              <dt className="text-sm font-medium text-gray-500">Documents</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                 <ul
                   // role="list"
@@ -103,7 +106,7 @@ function Account() {
                     </div>
                     <div className="ml-4 flex-shrink-0">
                       <a
-                      href="http://www.ipu.ac.in/"
+                      href="https://docs.google.com/spreadsheets/d/1MLAi-52dY1QooLr3Ftl8ySWEMoJFst8o/edit#gid=1998783879"
                         className="font-medium text-indigo-600 hover:text-indigo-500"
                       >
                         Open
@@ -118,7 +121,7 @@ function Account() {
                     </div>
                     <div className="ml-4 flex-shrink-0">
                       <a
-                        href="http://www.ipu.ac.in/"
+                        href="https://docs.google.com/spreadsheets/d/1MLAi-52dY1QooLr3Ftl8ySWEMoJFst8o/edit#gid=1998783879"
                         className="font-medium text-indigo-600 hover:text-indigo-500"
                       >
                         Open
@@ -130,17 +133,19 @@ function Account() {
             </div>
           </dl>
           <button
-            className="border border-blue-500 bg-blue-600 hover:bg-blue-500 w-[200px] p-4 my-2 mx-2 text-white"
+            className="border border-blue-500 bg-blue-600 w-[200px] p-4 my-2 mx-2 text-white hover:bg-blue-500"
+            
             onClick={() => {
               setOpen(true);
             }}
           >
             Verify
-            {open && <Modal />}
+            {open && <Modal closeModal={setOpen}/>}
           </button>
 
           <button
-            className="border border-blue-500 bg-blue-600 hover:bg-blue-500 w-[200px] p-4 my-2 mx-2 text-white"
+            className="border border-blue-500 bg-blue-600  w-[200px] p-4 my-2 mx-2 text-white hover:bg-blue-500"
+            
             onClick={generateRandomNumber}
           >
             Next
