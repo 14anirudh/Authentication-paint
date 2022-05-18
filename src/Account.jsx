@@ -47,9 +47,11 @@ function Account() {
       <h1 className="text-2xl font-bold py-4">Account</h1>
       <p>User Email:{user && user.email}</p>
       <button
+      
         onClick={handleClick}
-        className="border px-6 py-2 my-4 hover:bg-blue-50"
+        className="border rounded-[5px] px-6 py-2 my-4 hover:bg-blue-50"
         id="button"
+        
       >
         Logout
       </button>
@@ -133,7 +135,7 @@ function Account() {
             </div>
           </dl>
           <button
-            className="border border-blue-500 bg-blue-600 w-[200px] p-4 my-2 mx-2 text-white hover:bg-blue-500"
+            className="border border-blue-500 bg-blue-600 w-[200px] p-4 my-2 mx-2 text-white hover:bg-blue-500 rounded-[5px]"
             
             onClick={() => {
               setOpen(true);
@@ -144,7 +146,7 @@ function Account() {
           </button>
 
           <button
-            className="border border-blue-500 bg-blue-600  w-[200px] p-4 my-2 mx-2 text-white hover:bg-blue-500"
+            className="border border-blue-500 bg-blue-600  w-[200px] p-4 my-2 mx-2 text-white hover:bg-blue-500 rounded-[5px]"
             
             onClick={generateRandomNumber}
           >
