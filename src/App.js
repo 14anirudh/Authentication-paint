@@ -6,6 +6,8 @@ import Account from "./Account";
 import { Route, Routes } from "react-router-dom";
 import { AuthContextProvider } from "./context/Authcontext";
 import Protected from "./Protected";
+import { Canvas } from "./Canvas";
+
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
             element={
               <Protected>
                 <Account />
+                <Canvas />
+                {/* <ClearCanvasButton /> */}
               </Protected>
             }
           />
